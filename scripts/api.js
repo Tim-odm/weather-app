@@ -15,8 +15,16 @@ export async function makeRequest(location) {
    return data; 
 }
 
-async function getData() {
-  const data = await makeRequest("swansea");
-  console.log(data)
+export async function getCurrentConditionsData() {
+  const reqData = await makeRequest("swansea");
+  return {
+    address: reqData.resolvedAddress,
+    desc: reqData.description,
+    temp: reqData.currentConditions.temp,
+    sunrise: reqData.currentConditions.sunrise,
+    sunset: reqData.currentConditions.sunset,
+    cloudcover: reqData.currentConditions.cloudcover,
+    humidity: reqData.currentConditions.humidity,
+  }
 }
 
