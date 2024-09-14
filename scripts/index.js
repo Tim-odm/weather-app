@@ -11,7 +11,7 @@ searchSubmitBtn.addEventListener("click", async (e) => {
 
 // Update the current conditions section
 async function updateCurrentConditions(location) {
-  const currentCoditions = document.querySelectorAll("#current-conditions > p");
+  const currentCoditions = document.querySelectorAll("#current-conditions p");
   const data = await api.getCurrentConditionsData(location);
   Object.keys(data).forEach((i, index) => {
     currentCoditions[index].innerText = data[i];
