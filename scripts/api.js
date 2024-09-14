@@ -15,8 +15,8 @@ export async function makeRequest(location) {
    return data; 
 }
 
-export async function getCurrentConditionsData() {
-  const reqData = await makeRequest("swansea");
+export async function getCurrentConditionsData(location) {
+  const reqData = await makeRequest(location);
   return {
     address: reqData.resolvedAddress,
     desc: reqData.description,
