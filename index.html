@@ -10,21 +10,29 @@
     <input type="text" id="location-search" name="location-search"/>
     <input type="submit">
   </form>
+
   <section id="current-conditions">
-    <h4>Location</h4>
-    <p id="addrress"></p>
-    <h4>Description</h4>
-    <p id="desc"></p>
-    <h4>Temperature</h4>
-    <p id="temp"></p>
-    <h4>Sunrise</h4>
-    <p id="sunrise"></p>
-    <h4>Sunset</h4>
-    <p id="sunset"></p>
-    <h4>Cloudcover</h4>
-    <p id="cloudcover"></p>
-    <h4>Humidity</h4>
-    <p id="humidity"></p>
+    <div id="current-conditions-banner">
+      <p id="addrress"></p>
+      <div class="icon-div">
+        <img src="./assets/weather-sunny.svg" alt="Sunny icon" width="60">
+      </div>
+    </div>
+
+    <div>
+      <h4>Description</h4>
+      <p id="desc"></p>
+      <h4>Temperature</h4>
+      <p id="temp"></p>
+      <h4>Sunrise</h4>
+      <p id="sunrise"></p>
+      <h4>Sunset</h4>
+      <p id="sunset"></p>
+      <h4>Cloudcover</h4>
+      <p id="cloudcover"></p>
+      <h4>Humidity</h4>
+      <p id="humidity"></p>
+    </div>
   </section>
   <script type="module" src="./scripts/index.js"></script> 
 </body>
