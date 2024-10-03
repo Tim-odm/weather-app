@@ -35,8 +35,8 @@ async function updateUpcomingDays(location) {
     <td>${day.conditions}</td>
     <td>${day.tempmax}&degC</td>
     <td>${day.tempmin}&degC</td>
-    <td>${day.sunrise}am</td>
-    <td>${day.sunset}pm</td>
+    <td>${day.sunrise}</td>
+    <td>${day.sunset}</td>
     <td>${day.cloudcover}</td>
     <td>${day.humidity}%</td>
     `
