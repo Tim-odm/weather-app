@@ -32,6 +32,27 @@ export async function getCurrentConditionsData(location) {
   };
 }
 
+// Get the upcoming days data
+export async function getUpcomingDaysData(location) {
+  const reqData = await makeRequest(location); 
+  const days = [];
+
+  for (let i = 0; i < 10; i++) {
+    days.push({
+      date: reqData.days[i].datetime,
+      conditions: reqData.days[i].conditions,
+      tempmax: reqData.days[i].tempmax,
+      tempmin: reqData.days[i].tempmin,
+      sunrise: reqData.days[i].sunrise,
+      sunset: reqData.days[i].sunset,
+      cloudcover: reqData.days[i].cloudcover,
+      humidity: reqData.days[i].humidity,
+    });
+  }
+
+  console.log(days);
+}
+
 // Get current time of request address
 function getCurrentTime(address) {
   const currentTime = new Date().toLocaleString("en-GB", {
