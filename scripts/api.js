@@ -60,5 +60,5 @@ function getCurrentTime(address) {
     timeZone: address,
   });
   console.log(currentTime);
-  return currentTime.substring(11, 17);
+  return currentTime.substring(12, 20);
 }

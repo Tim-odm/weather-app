@@ -16,11 +16,11 @@ async function updateCurrentConditions(location) {
   const data = await api.getCurrentConditionsData(location);
 
   currentConditions[0].innerHTML = data.address;
-  currentConditions[1].innerHTML = data.currentTime;
+  currentConditions[1].innerHTML = formatTime(data.currentTime);
   currentConditions[2].innerHTML = data.desc;
   currentConditions[3].innerHTML = `${data.temp}&degC`;
-  currentConditions[4].innerHTML = data.sunrise;
-  currentConditions[5].innerHTML = data.sunset;
+  currentConditions[4].innerHTML = formatTime(data.sunrise);
+  currentConditions[5].innerHTML = formatTime(data.sunset);
   currentConditions[6].innerHTML = data.cloudcover;
   currentConditions[7].innerHTML = `${data.humidity}%`;
 }
@@ -37,15 +37,24 @@ async function updateUpcomingDays(location) {
     const row = document.createElement("tr");
 
     row.innerHTML = `
-    <td>${day.date}</td>
+    <td>${formatDate(day.date)}</td>
     <td>${day.conditions}</td>
     <td>${day.tempmax}&degC</td>
     <td>${day.tempmin}&degC</td>
-    <td>${day.sunrise}</td>
-    <td>${day.sunset}</td>
+    <td>${formatTime(day.sunrise)}</td>
+    <td>${formatTime(day.sunset)}</td>
     <td>${day.cloudcover}</td>
     <td>${day.humidity}%</td>
     `
     tableBody.appendChild(row);
   })
+}
+
+function formatTime(time) {
+  return time.substring(0, 5);
+}
+
+function formatDate(date) {
+  const newDate = new Date(date);
+  return newDate.toDateString().substring(0, 10);
 }
