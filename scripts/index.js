@@ -12,11 +12,17 @@ searchSubmitBtn.addEventListener("click", async (e) => {
 
 // Update the current conditions section
 async function updateCurrentConditions(location) {
-  const currentCoditions = document.querySelectorAll("#current-conditions p");
+  const currentConditions = document.querySelectorAll("#current-conditions p");
   const data = await api.getCurrentConditionsData(location);
-  Object.keys(data).forEach((i, index) => {
-    currentCoditions[index].innerText = data[i];
-  })
+
+  currentConditions[0].innerHTML = data.address;
+  currentConditions[1].innerHTML = data.currentTime;
+  currentConditions[2].innerHTML = data.desc;
+  currentConditions[3].innerHTML = `${data.temp}&degC`;
+  currentConditions[4].innerHTML = data.sunrise;
+  currentConditions[5].innerHTML = data.sunset;
+  currentConditions[6].innerHTML = data.cloudcover;
+  currentConditions[7].innerHTML = `${data.humidity}%`;
 }
 
 async function updateUpcomingDays(location) {
