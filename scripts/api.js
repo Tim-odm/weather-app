@@ -50,7 +50,7 @@ export async function getUpcomingDaysData(location) {
     });
   }
 
-  console.log(days);
+  return days;
 }
 
 // Get current time of request address
