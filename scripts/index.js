@@ -23,6 +23,10 @@ async function updateCurrentConditions(location) {
   currentConditions[5].innerHTML = formatTime(data.sunset);
   currentConditions[6].innerHTML = data.cloudcover;
   currentConditions[7].innerHTML = `${data.humidity}%`;
+
+  const img = document.getElementById("current-conditions-icon");
+  img.src = `./assets/${data.icon}.svg`;
+  img.alt = `${data.icon} icon`;
 }
 
 async function updateUpcomingDays(location) {
@@ -38,7 +42,7 @@ async function updateUpcomingDays(location) {
 
     row.innerHTML = `
     <td>${formatDate(day.date)}</td>
-    <td>${day.conditions}</td>
+    <td>${setIcon(day.icon)}</td>
     <td>${day.tempmax}&degC</td>
     <td>${day.tempmin}&degC</td>
     <td>${formatTime(day.sunrise)}</td>
@@ -57,4 +61,11 @@ function formatTime(time) {
 function formatDate(date) {
   const newDate = new Date(date);
   return newDate.toDateString().substring(0, 10);
+}
+
+function setIcon(icon) {
+  const src = `./assets/${icon}.svg`;
+  const alt = `${icon} icon`;
+ 
+  return `<img src=\"${src}\" alt=\"${alt}\">`
 }

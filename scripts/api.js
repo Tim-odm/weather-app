@@ -29,6 +29,7 @@ export async function getCurrentConditionsData(location) {
     sunset: reqData.currentConditions.sunset,
     cloudcover: reqData.currentConditions.cloudcover,
     humidity: reqData.currentConditions.humidity,
+    icon: reqData.currentConditions.icon,
   };
 }
 
@@ -40,7 +41,7 @@ export async function getUpcomingDaysData(location) {
   for (let i = 0; i < 10; i++) {
     days.push({
       date: reqData.days[i].datetime,
-      conditions: reqData.days[i].conditions,
+      icon: reqData.days[i].icon,
       tempmax: reqData.days[i].tempmax,
       tempmin: reqData.days[i].tempmin,
       sunrise: reqData.days[i].sunrise,
